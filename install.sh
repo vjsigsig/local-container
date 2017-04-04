@@ -27,4 +27,5 @@ echo '--- install packages ---'
 yum install -y openssh-server git vim wget
 
 # コンテナの再起動
+echo '--- reboot now !! ---'
 reboot
