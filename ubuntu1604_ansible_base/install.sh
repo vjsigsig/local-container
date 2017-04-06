@@ -22,6 +22,11 @@ chmod 440 /etc/sudoers.d/local
 echo '--- install packages ---'
 apt install -y ansible sshpass
 
+# 日本語化対応
+echo '--- update language ---'
+apt install -y language-pack-ja-base
+
+
 # コンテナの再起動
 echo '--- reboot now !! ---'
 reboot
