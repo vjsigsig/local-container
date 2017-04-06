@@ -24,8 +24,8 @@ apt install -y ansible sshpass
 
 # 日本語化対応
 echo '--- update language ---'
-apt install -y language-pack-ja-base
-
+locale-gen ja_JP.UTF-8
+update-locale LANG=ja_JP.UTF-8 LANGUAGE=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8
 
 # コンテナの再起動
 echo '--- reboot now !! ---'
