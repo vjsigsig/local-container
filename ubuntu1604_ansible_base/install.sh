@@ -15,7 +15,14 @@ echo 'ansible:ansible' |chpasswd
 
 # ansibleユーザーをsudo使用可能にする
 echo '--- setting sudoers ---'
-echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/local
+TMPPATH=$(mktemp)
+echo 'ansible ALL=(ALL) NOPASSWD:ALL' > ${TMPPATH}
+RES=$(visudo -cf ${TMPPATH})
+if [ ${CODE} -ne 0 ]; then
+  echo ${RES}
+  exit 1
+fi
+mv ${TMPPATH} /etc/sudoers.d/local
 chmod 440 /etc/sudoers.d/local
 
 # ansible, sshpassをそれぞれインストール
