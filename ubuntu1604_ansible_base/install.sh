@@ -35,6 +35,11 @@ echo '--- update language ---'
 locale-gen ja_JP.UTF-8
 update-locale LANG=ja_JP.UTF-8 LANGUAGE=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8
 
+# .ssh/configに、フィンガープリントチェックを行わない設定
+Host 10.0.0.*
+StrictHostKeyChecking no
+UserKnownHostsFile=/dev/null
+
 # コンテナの再起動
 echo '--- reboot now !! ---'
 reboot
