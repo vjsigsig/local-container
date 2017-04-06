@@ -19,6 +19,7 @@ echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/local
 chmod 440 /etc/sudoers.d/local
 
 # ansible, sshpassをそれぞれインストール
+echo '--- install packages ---'
 apt install -y ansible sshpass
 
 # コンテナの再起動
