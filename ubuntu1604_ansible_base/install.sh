@@ -37,8 +37,9 @@ update-locale LANG=ja_JP.UTF-8 LANGUAGE=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8
 
 # .ssh/configに、フィンガープリントチェックを行わない設定
 echo '--- update .ssh/config ---'
-install -o ansible -g ansible -m 664 -d /home/ansible/.ssh/config
 echo -e 'Host 10.0.0.*\nStrictHostKeyChecking no\nUserKnownHostsFile=/dev/null' > /home/ansible/.ssh/config
+chown ansible. /home/ansible/.ssh/config
+chmod 664 /home/ansible/.ssh/config
 
 # コンテナの再起動
 echo '--- reboot now !! ---'
