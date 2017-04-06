@@ -18,6 +18,7 @@ echo '--- setting sudoers ---'
 TMPPATH=$(mktemp)
 echo 'ansible ALL=(ALL) NOPASSWD:ALL' > ${TMPPATH}
 RES=$(visudo -cf ${TMPPATH})
+CODE=$?
 if [ ${CODE} -ne 0 ]; then
   echo ${RES}
   exit 1
