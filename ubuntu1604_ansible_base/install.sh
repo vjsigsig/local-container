@@ -15,7 +15,7 @@ echo 'ansible:ansible' |chpasswd
 
 # ansibleユーザーをsudo使用可能にする
 echo '--- setting sudoers ---'
-echo 'localuser ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/local
+echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/local
 chmod 440 /etc/sudoers.d/local
 
 # コンテナの再起動
